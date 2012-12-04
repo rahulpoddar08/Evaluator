@@ -1,0 +1,8 @@
+<% if @evaluation.errors.any? %>
+  <div id="error_explanation" >
+    <% @evaluation.errors.full_messages.each do |msg| %>
+        <div class="error-box myred-error error-field"><%= msg %></div>
+    <% end %>
+  </div>
+  <div class="span-22"></div>
+<% end %>
