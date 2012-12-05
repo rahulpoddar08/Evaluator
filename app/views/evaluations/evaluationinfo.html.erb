@@ -1,7 +1,7 @@
 <div class="span-22 prepend-1 append-1 evaluation-information">
   <h2>Options For This Evaluation: <%= @evaluation.name %></h2>
   <%= link_to "Evaluate!", takeevaluation_path(:id => @evaluation.id), {:class => 'span-7 mybutton-half myorange'} %>
-  <%= link_to "Current Evaluation Status", evaluationresults_path(:id => @evaluation.id), {:class => 'span-7 mybutton-half myblue prepend-half'} %>
+  <%= link_to "Current Evaluation Status", evaluation_results_path(:id => @evaluation.id), {:class => 'span-7 mybutton-half myblue prepend-half'} %>
   <%= link_to "Create Questions", evaluationadmin_path(:id => @evaluation.id), {:class => 'span-7 mybutton-half mygreen prepend-half last'} %>
 </div>
 <div class="prepend-1 span-22 append-1">
