@@ -94,7 +94,7 @@ class EvaluationsController < ApplicationController
         @questions.each do |q|
           @total = 0
           q.question_results.each do |r|
-            @total = @total + r.answer.to_i
+            @total = @total + r.Answer.to_i
           end
           @averageAnswers[@count] = (@total.to_f/q.question_results.length.to_f).round * 135
           @numberOfTimesAnswered[@count] = q.question_results.length

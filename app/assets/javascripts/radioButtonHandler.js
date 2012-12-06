@@ -27,7 +27,7 @@ $(document).ready( function(){
   });
 });
 
-function submitSurveyJS(){
+function submitEvaluationJS(){
  var numQuestions = parseInt($("#numberOfQuestions").attr("value"));
  var retVal = true;
  var selections = new Array();
@@ -43,12 +43,12 @@ function submitSurveyJS(){
    }  
  }
  if(retVal == true){
-   var surveyId = $("#submitSurveyAnswers").attr("surveyid");
-   var hrefVal = "/saveresults?id="+surveyId+"&answers="; 
+   var evaluationId = $("#submitEvaluationAnswers").attr("evaluationid");
+   var hrefVal = "/saveresults?id="+evaluationId+"&answers="; 
    for(i = 0; i < numQuestions; i++){
      hrefVal = hrefVal + selections[i] + "x";
    } 
-   $("#submitSurveyAnswers").attr("href", hrefVal);
+   $("#submitEvaluationAnswers").attr("href", hrefVal);
  }
  return retVal;
 }

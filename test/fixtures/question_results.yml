@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  Answer: 1
+  answer: 1
   question_id: 1
 
 two:
-  Answer: 1
+  answer: 1
   question_id: 1

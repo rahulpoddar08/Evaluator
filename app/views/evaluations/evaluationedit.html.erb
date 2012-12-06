@@ -7,7 +7,7 @@
     <textarea class="span-16 submitQuestion" id="textArea<%= counter %>" number="<%= counter %>" ><%= question.content %></textArea>
     <div class="actions span-6 last">
       <%= link_to "Delete Question", deletequestion_path(:id => @evaluation.id, :questionid => question.id), {:class => 'span-5 submit-form-no-hover myred-hover'} %>
-      <%= link_to "Update Question?", updatequestion_path(:id => @evaluation.id, :questionid => question.id), {:class => 'span-5 submit-form-no-hover myblue-hover updateButton', :number => counter} %>
+      <%= link_to "Update Question", updatequestion_path(:id => @evaluation.id, :questionid => question.id), {:class => 'span-5 submit-form-no-hover myblue-hover updateButton', :number => counter} %>
     </div>
     <div class="span-22 last"></div>
     <% counter = counter + 1 %>

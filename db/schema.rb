@@ -20,11 +20,12 @@ ActiveRecord::Schema.define(:version => 20121201233511) do
   end
 
   create_table "question_results", :force => true do |t|
-    t.integer  "Answer"
+    t.integer  "answer"
     t.integer  "question_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+ add_index "question_results", ["question_id"], :name => "index_question_results_on_question_id"
 
   create_table "questions", :force => true do |t|
     t.string   "content"
@@ -32,5 +33,6 @@ ActiveRecord::Schema.define(:version => 20121201233511) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
+add_index "questions", ["evaluation_id"], :name => "index_questions_on_evaluation_id"
 
 end

@@ -3,7 +3,7 @@ Evaluator::Application.routes.draw do
   match '/evaluation-administration', :to => 'evaluations#evaluationadmin', :as => 'evaluationadmin'
   match '/evaluation-information', :to => 'evaluations#evaluationinfo', :as => 'evaluationinfo'
   match '/take-evaluation', :to => 'evaluations#takeevaluation', :as => 'takeevaluation'
-  match '/evaluation-results', :to => 'evaluations#evaluation_results', :as => 'evaluation_results'
+  match '/evaluation-results', :to => 'evaluations#evaluationresults', :as => 'evaluationresults'
   match '/edit-evaluation', :to => 'evaluations#evaluationedit', :as => 'evaluationedit'
   match '/delete', :to => 'evaluations#delete', :as => 'delete'
   match '/questions', :to => 'evaluations#questions'
