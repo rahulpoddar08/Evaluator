@@ -5,9 +5,9 @@ class EvaluationsController < ApplicationController
     @answers = params[:answers].to_s.split('x')
     @questions = @evaluation.questions
     @questions.each do |question|
-      currentanswer = @answers.shift
-      currentanswer = currentanswer.to_i
-      question.question_results.new(:answer => currentanswer).save
+      currentAnswer = @answers.shift
+      currentAnswer = currentAnswer.to_i
+      question.question_results.new(:Answer => currentAnswer).save
     end
     redirect_to evaluationresults_path(:id => params[:id])
   end
