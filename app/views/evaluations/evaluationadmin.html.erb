@@ -1,0 +1,18 @@
+<p>Welcome Admin!!</p>
+<div class="span-22 prepend-1 append-1">
+  <h2>Personalize Your Evaluation: <%= @evaluation.name %></h2>
+  <%= link_to "Edit Questions", evaluationedit_path(:id => @evaluation.id) %></br>
+  <%= link_to "Create a new Evaluation", '/' %>
+</div>
+<div  class="span-22 prepend-1 append-1">
+  <%= link_to "Destroy Evaluation", delete_path(:id => @evaluation.id), {:id => "hiddenYes"} %>
+  <div class="span-7 mybutton-half myorange-hover" id="deleteEvaluationButton" onclick="verifySelection()">Delete this Evaluation</div>
+  <div class="modificationWarning red questionnumber verificationWarning mygreen-hover" id="hiddenNo" onclick="hideVerification()">Keep Evaluation</div>
+</div>
+<div class="prepend-1 span-22 append-1">
+  <div class="divider span-22">
+  </div>
+</div>
+<div id="forward-backward-area" class="span-22 prepend-1 append-1">
+  <%= link_to "Back", evaluationinfo_path(:id => @evaluation.id) %>
+</div>

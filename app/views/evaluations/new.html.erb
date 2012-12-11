@@ -1,0 +1,47 @@
+<div class="span-22 prepend-1 append-1">
+ <div class="divider span-22">
+  </div>
+<div align="justify">
+  <div class="submitArea span-22">
+<font face="ARIAL" size="4" color="#993600"><h2>CREATE NEW EVALUATION</h2></font>
+<div class="span-22 prepend-1 append-1">  
+ 
+  <%= form_for(@evaluation) do |f| %>
+    <%= render 'shared/error_messages'%>
+   
+    <div class="field">
+      <h3 class="submitLabel">Evaluation Name:</h3>
+      <%= f.text_field :name, :class => "span-10 submitBox" %>
+    
+    </div>
+    <div class="actions span-5 last">
+      <%= f.submit "Create Evaluation", {:id => "submit-form", :class => "mygreen-hover"} %>
+    </div>
+  </div>
+    </div>
+  </div>
+</div>
+
+<font face="ARIAL" size="4" color="#993600"><h2>SELECT AMONG EXISTING EVALUATIONS</h2></font>
+<div class="span-22 prepend-1 append-1">
+  <div class="allEvaluationsArea span-22">
+    <% counter = 0 %>
+    <% @evaluations.each do |evaluation| %>
+      <% if(counter == 0) %>
+        <%= link_to evaluation.name, evaluationinfo_path(:id => evaluation.id) %></br>
+      <% elsif(counter == 1) %>
+        <%= link_to evaluation.name, evaluationinfo_path(:id => evaluation.id) %></br>
+      <% else %>
+        <%= link_to evaluation.name, evaluationinfo_path(:id => evaluation.id) %></br>
+        <% counter = -1 %>
+        <div class="span-22"></div>
+      <% end %>
+      <% counter = counter + 1 %>
+    <% end %>
+  </div>
+</div>
+</div>
+<% end %>
+
+
+

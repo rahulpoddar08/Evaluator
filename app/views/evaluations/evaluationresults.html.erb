@@ -1,0 +1,49 @@
+<div class="span-22 prepend-1 append-1">
+  <h2>Evaluation: <%= @evaluation.name %></h2>
+  <div class="span-22"></div>
+  <% if(@hasQuestions == false) %>
+    <h2>This evaluation has no questions</h2> 
+  <% elsif(@hasResults == false) %>
+    <h2>This evaluation has no submissions</h2> 
+  <% else %>
+    <h2>evaluation has <%= @totalSubmissions.to_s %> submissions. The average answers are below.</h2>
+    <h2 class="resultRowText">Value 1 is least favorable and 5 is most favorable.</h2>
+    <div class="span-22" style="margin-bottom: 10px;">
+      <div class="resultLegend span-21">
+        <div class="resultLegendVal">1</div>
+        <div class="resultLegendVal">2</div>
+        <div class="resultLegendVal">3</div>
+        <div class="resultLegendVal">4</div>
+        <div class="resultLegendVal">5</div>
+      </div>
+    </div>
+    <% questionCount = 0 %>
+    <div id="totalRows" value="<%= @numQuestions %>"></div>
+    <% @averageAnswers.each do |val| %>
+      <% questionCount = questionCount + 1 %>
+      <div class="span-22 resultRow">
+        <div class="span-22 last"><p class="resultRowText">Q<%= questionCount %>: <%= @questions[questionCount-1].content %></p></div>
+        <div id="bar<%= questionCount %>" class="resultRowValue" style="background-color: #ffdd33;" value="<%= val.to_s %>">
+          <p>Answered <%= @numberOfTimesAnswered[questionCount-1] %> Times</p>
+        </div>
+      </div>
+    <% end %>
+    <div class="span-22">
+      <div class="resultLegend span-21">
+        <div class="resultLegendVal">1</div>
+        <div class="resultLegendVal">2</div>
+        <div class="resultLegendVal">3</div>
+        <div class="resultLegendVal">4</div>
+        <div class="resultLegendVal">5</div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="prepend-1 span-22 append-1">
+  <div class="divider span-22">
+  </div>
+</div>
+<div id="forward-backward-area" class="span-22 prepend-1 append-1">
+  <%= link_to "Home", '/' %></br>
+  <%= link_to "Home-Evaluation", evaluationinfo_path(:id => @evaluation.id) %>
+</div>

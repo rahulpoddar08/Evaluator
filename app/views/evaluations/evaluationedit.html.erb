@@ -1,0 +1,43 @@
+<div class="span-22 prepend-1 append-1">
+  <h2><%= @evaluation.name %></h2>
+  <% counter = 0 %>
+  <% @questions.each do |question| %>
+    <div class="span-3 questionnumber">Question <%= (counter+1) %></div>
+    <div class="span-19 last"><div class="modificationWarning red questionnumber" id="modified<%= counter %>">Has Not Been Updated</div></div>
+    <div class="span-22 last"></div>
+    <textarea class="span-16 submitQuestion" id="textArea<%= counter %>" number="<%= counter %>" ><%= question.content %></textArea>
+    <div class="actions span-6 last">
+      <%= link_to "Delete Question", deletequestion_path(:id => @evaluation.id, :questionid => question.id), {:class => 'span-5 submit-form-no-hover myred-hover'} %>
+      <%= link_to "Update Question", updatequestion_path(:id => @evaluation.id, :questionid => question.id), {:class => 'span-5 submit-form-no-hover myblue-hover updateButton', :number => counter} %>
+    </div>
+    <div class="span-22 last"></div>
+    <% counter = counter + 1 %>
+  <% end %>
+  <div class="span-7 questionnumber">Add Question <%= (counter+1) %></div>
+  <div class="span-15 last"><div class="modificationWarning red questionnumber" id="modified<%= (counter) %>">Has Not Been Submitted</div></div>
+  <div class="span-22 last" id="maxQuestion" number="<%= (counter+1) %>">
+    <%= form_for(@question) do |f| %>
+      <%= f.text_area :content, :class => "span-16 submitQuestion", :id => "textArea#{counter}", :number => "#{(counter)}" %>
+      <div>
+        <%= f.hidden_field :evaluationid, :value => "#{@evaluation.id}" %>
+      </div>
+      <div class="actions span-5 last">
+        <%= f.submit "Add Question" %> 
+      </div>
+    <% end %>
+  </div>
+  <div class="divider span-22">
+  </div>
+</div>
+<div id="forward-backward-area" class="span-22 prepend-1 append-1">
+  <div class="span-4 mybutton-half myblack previousButtonSize" onclick="verifySelection()">Back</div> 
+  <div class="span-4 mybutton-half myblack previousButtonSize" onclick="verifySelection2()">Home</div> 
+</div>
+<div  class="span-22 prepend-1 append-1">
+  <%= link_to "Leave Page", evaluationadmin_path(:id => @evaluation.id), {:class => 'mygreen-hover modificationWarning red questionnumber verificationWarning', :id => "hiddenYes"} %>
+  <div class="modificationWarning red questionnumber verificationWarning mygreen-hover" id="hiddenNo" onclick="hideVerification()">Stay Here</div>
+</div>
+<div  class="span-22 prepend-1 append-1">
+  <%= link_to "Leave Page", '/', {:class => 'mygreen-hover modificationWarning red questionnumber verificationWarning', :id => "hiddenYes2"} %>
+  <div class="modificationWarning red questionnumber verificationWarning mygreen-hover" id="hiddenNo2" onclick="hideVerification2()">Stay Here</div>
+</div>

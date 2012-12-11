@@ -1,0 +1,13 @@
+<div class="span-22 prepend-1 append-1 evaluation-information">
+  <h2>Options For This Evaluation: <%= @evaluation.name %></h2>
+  <%= link_to "Evaluate!", takeevaluation_path(:id => @evaluation.id) %><br/>
+  <%= link_to "Current Evaluation Status", evaluationresults_path(:id => @evaluation.id) %><br/>
+  <%= link_to "Create Questions", evaluationadmin_path(:id => @evaluation.id) %>
+</div>
+<div class="prepend-1 span-22 append-1">
+  <div class="divider span-22">
+  </div>
+</div>
+<div id="forward-backward-area" class="span-22 prepend-1 append-1">
+  <%= link_to "back", '/' %>
+</div>

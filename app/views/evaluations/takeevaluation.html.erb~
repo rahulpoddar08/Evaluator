@@ -1,0 +1,43 @@
+<div class="span-22 prepend-1 append-1">
+  <h1><%= @evaluation.name %></h1>
+  <h2>Points that you will give on the scale of 5</h2>
+  <% counter = 0 %>
+    <% @questions.each do |question| %>
+      <div class="span-22 questionSpacer"><p><%= (counter+1) %><%=". " %><%= question.content %></p></div>
+      <div class="span-22 error-box hideError" id="errorset<%= counter %>">You cannot proceed without answering this question!</div>
+      <div class="questionSpacer span-22"></div>
+      <div class="span-22 radioButtonLabels">
+        <div class="radioButtonLabel">1</div>
+        <div class="radioButtonLabel">2</div>
+        <div class="radioButtonLabel">3</div>
+        <div class="radioButtonLabel">4</div>
+        <div class="radioButtonLabel">5</div>
+      </div>
+      <div class="span-22 radiobuttons">
+        <div class="radiobutton" selected="0" set="<%= counter %>" id="radioset<%= counter %>index1"></div>
+        <div class="radiobutton" selected="0" set="<%= counter %>" id="radioset<%= counter %>index2"></div>
+        <div class="radiobutton" selected="0" set="<%= counter %>" id="radioset<%= counter %>index3"></div>
+        <div class="radiobutton" selected="0" set="<%= counter %>" id="radioset<%= counter %>index4"></div>
+        <div class="radiobutton" selected="0" set="<%= counter %>" id="radioset<%= counter %>index5"></div>
+      </div>
+      <% counter = counter + 1 %>
+    <% end %>
+    <div id="numberOfQuestions" value="<%= counter %>"></div>
+     
+    <%= link_to "Submit Evaluation", saveresults_path(:id => @evaluation.id, :answers => "") %>
+   
+  
+  
+</div></br>
+<div id="forward-backward-area" class="span-22 prepend-1 append-1">
+  <div class="span-4 mybutton-half myblack previousButtonSize" onclick="verifySelection()">Back</div> 
+  <div class="span-4 mybutton-half myblack previousButtonSize" onclick="verifySelection2()">Home</div> 
+</div>
+<div  class="span-22 prepend-1 append-1">
+  <%= link_to "Leave Page", evaluationinfo_path(:id => @evaluation.id), {:class => 'mygreen-hover modificationWarning red questionnumber verificationWarning', :id => "hiddenYes"} %>
+  <div class="modificationWarning red questionnumber verificationWarning mygreen-hover" id="hiddenNo" onclick="hideVerification()">Stay Here</div>
+</div>
+<div  class="span-22 prepend-1 append-1">
+  <%= link_to "Leave Page", '/', {:class => 'mygreen-hover modificationWarning red questionnumber verificationWarning', :id => "hiddenYes2"} %>
+  <div class="modificationWarning red questionnumber verificationWarning mygreen-hover" id="hiddenNo2" onclick="hideVerification2()">Stay Here</div>
+</div>
