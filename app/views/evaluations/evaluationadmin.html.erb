@@ -1,12 +1,21 @@
 <p>Welcome Admin!!</p>
 <div class="span-22 prepend-1 append-1">
   <h2>Personalize Your Evaluation: <%= @evaluation.name %></h2>
+<<<<<<< HEAD
   <%= link_to "Edit Questions", evaluationedit_path(:id => @evaluation.id) %></br>
   <%= link_to "Create a new Evaluation", '/' %>
 </div>
 <div  class="span-22 prepend-1 append-1">
   <%= link_to "Destroy Evaluation", delete_path(:id => @evaluation.id), {:id => "hiddenYes"} %>
   <div class="span-7 mybutton-half myorange-hover" id="deleteEvaluationButton" onclick="verifySelection()">Delete this Evaluation</div>
+=======
+  <div class="span-7 mybutton-half myorange-hover" id="deleteEvaluationButton" onclick="verifySelection()">Delete this Evaluation</div>
+  <%= link_to "Edit Questions", evaluationedit_path(:id => @evaluation.id), {:class => 'span-7 mybutton-half myblue prepend-half'} %>
+  <%= link_to "Create a new Evaluation", '/', {:class => 'span-7 mybutton-half mygreen prepend-half last'} %>
+</div>
+<div  class="span-22 prepend-1 append-1">
+  <%= link_to "Destroy Evaluation", delete_path(:id => @evaluation.id), {:class => 'mygreen-hover modificationWarning red questionnumber verificationWarning', :id => "hiddenYes"} %>
+>>>>>>> 35a0cba90483b26aafb7fec5c541a2327a319b8a
   <div class="modificationWarning red questionnumber verificationWarning mygreen-hover" id="hiddenNo" onclick="hideVerification()">Keep Evaluation</div>
 </div>
 <div class="prepend-1 span-22 append-1">
@@ -14,5 +23,9 @@
   </div>
 </div>
 <div id="forward-backward-area" class="span-22 prepend-1 append-1">
+<<<<<<< HEAD
   <%= link_to "Back", evaluationinfo_path(:id => @evaluation.id) %>
+=======
+  <%= link_to "Back", evaluationinfo_path(:id => @evaluation.id), {:class => 'span-4 mybutton-half myblack'} %>
+>>>>>>> 35a0cba90483b26aafb7fec5c541a2327a319b8a
 </div>

@@ -1,9 +1,17 @@
 <div class="span-22 prepend-1 append-1">
+<<<<<<< HEAD
   <h1><%= @evaluation.name %></h1>
   <h2>Points that you will give on the scale of 5</h2>
   <% counter = 0 %>
     <% @questions.each do |question| %>
       <div class="span-22 questionSpacer"><p><%= (counter+1) %><%=". " %><%= question.content %></p></div><br/>
+=======
+  <h2><%= @evaluation.name %></h2>
+  <h2>Points that you will give on the scale of 5</h2>
+  <% counter = 0 %>
+    <% @questions.each do |question| %>
+      <div class="span-22 questionSpacer"><p><%= (counter+1) %><%=". " %><%= question.content %></p></div>
+>>>>>>> 35a0cba90483b26aafb7fec5c541a2327a319b8a
       <div class="span-22 error-box hideError" id="errorset<%= counter %>">You cannot proceed without answering this question!</div>
       <div class="questionSpacer span-22"></div>
       <div class="span-22 radioButtonLabels">
@@ -23,12 +31,21 @@
       <% counter = counter + 1 %>
     <% end %>
     <div id="numberOfQuestions" value="<%= counter %>"></div>
+<<<<<<< HEAD
      
     <%= link_to "Submit Evaluation", saveresults_path(:id => @evaluation.id, :answers => "") %>
    
   
   
 </div></br>
+=======
+    <div class="span-22 above-submit-evaluation">
+      <%= link_to "Submit Evaluation", saveresults_path(:id => @evaluation.id, :answers => ""), {:evaluationid => @evaluation.id, :class => 'span-4 mybutton-half mygreen-hover', :id => "submitEvaluationAnswers", :onclick => "return submitEvaluationJS()"} %>
+    </div>
+  <div class="divider span-22">
+  </div>
+</div>
+>>>>>>> 35a0cba90483b26aafb7fec5c541a2327a319b8a
 <div id="forward-backward-area" class="span-22 prepend-1 append-1">
   <div class="span-4 mybutton-half myblack previousButtonSize" onclick="verifySelection()">Back</div> 
   <div class="span-4 mybutton-half myblack previousButtonSize" onclick="verifySelection2()">Home</div> 
