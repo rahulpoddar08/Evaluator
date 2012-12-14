@@ -3,6 +3,11 @@ require 'test_helper'
 class EvaluationsControllerTest < ActionController::TestCase
   setup do
     @evaluation = evaluations(:one)
+    @update = {
+	:name    => 'Uday Kadaboina'
+	:questions => 'What is this?'
+}
+	
   end
 
   test "should get index" do
@@ -19,6 +24,7 @@ class EvaluationsControllerTest < ActionController::TestCase
   test "should create evaluation" do
     assert_difference('Evaluation.count') do
       post :create, evaluation: @evaluation.attributes
+post :create, :questions => @update
     end
 
     assert_redirected_to evaluation_path(assigns(:evaluation))

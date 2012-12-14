@@ -3,6 +3,10 @@ require 'test_helper'
 class QuestionResultsControllerTest < ActionController::TestCase
   setup do
     @question_result = question_results(:one)
+@update = {
+	:answer    => 1
+}
+	
   end
 
   test "should get index" do

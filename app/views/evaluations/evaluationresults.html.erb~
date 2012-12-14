@@ -4,7 +4,7 @@
   <% if(@hasQuestions == false) %>
     <h2>This evaluation has no questions</h2> 
   <% elsif(@hasResults == false) %>
-    <h2>This evaluation has no submissions</h2> 
+    <h2>This Evaluation has no Submissions</h2> 
   <% else %>
     <h2>evaluation has <%= @totalSubmissions.to_s %> submissions. The average answers are below.</h2>
     <h2 class="resultRowText">Value 1 is least favorable and 5 is most favorable.</h2>
@@ -19,7 +19,7 @@
     </div>
     <% questionCount = 0 %>
     <div id="totalRows" value="<%= @numQuestions %>"></div>
-    <% @averageAnswers.each do |val| %>
+    <% @averageanswers.each do |val| %>
       <% questionCount = questionCount + 1 %>
       <div class="span-22 resultRow">
         <div class="span-22 last"><p class="resultRowText">Q<%= questionCount %>: <%= @questions[questionCount-1].content %></p></div>
